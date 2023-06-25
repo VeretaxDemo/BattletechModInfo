@@ -1,0 +1,104 @@
+/****************************************************************************************/
+/*																						*/
+/*	Project: Battletech-Mod-Info App													*/
+/*	Subtitle: Application to help players manage and understand their mods				*/
+/*																						*/
+/*																						*/
+/****************************************************************************************/
+
+
+
+
+/****************************************************************************************/
+/*																						*/
+/*	Featureset: 	Crawl Folder Structure  											*/
+/*																						*/
+/****************************************************************************************/
+
+	* Need to Prompt for folder where Battletech sits
+	* May Need to Prompt for folder where Mods are Stored
+	* Get list of all files
+		* with their paths
+		* file name
+		* store file markers:
+			* read only?
+			* file type
+			* filesize
+			* date created
+			* date last modified
+			* date first seen
+			* date last seen
+	* Get List of all Mods Installed (or at least their folders)
+		* statistics about subfolders and files
+
+/****************************************************************************************/
+/*																						*/
+/*	Featureset: 	Backup and Recovery													*/
+/*																						*/
+/****************************************************************************************/
+
+	* Mod Backup
+		* Full Backup of Mod Folder
+		* Specific Backup of Specific Mods
+		* Prompt for backup location
+		* Compress and archive to backup location
+		* Recovery
+			* Prompt for backup location
+			* Check for folders that already exist
+				* Prompt to overwrite
+			* Copy overtop of existing files
+			* Safe Mode
+				* Clean up Mods Folder
+				* Install fresh backups
+	* Game Backup
+		* Full Game Backup
+			* Prompt for Backup location
+			* Compress and archive to backup location
+		* Game Recovery
+			* Prompt for Backup Location
+			* Prompt for recovery location
+				* Extract and overwrite
+					
+
+
+/****************************************************************************************/
+/*																						*/
+/*	Featureset: 	Mech Management  (Potentially Vehicles too down the road			*/
+/*																						*/
+/****************************************************************************************/
+
+	* Get all files, and look for names/references of all available mechs
+	* Random Unit List
+		* Based on Tonnage
+		* Based on Budget/price
+		* Based on random startup rolls
+			* Class
+			* Weight
+			* Xotl random based on era
+
+
+
+
+
+
+/****************************************************************************************/
+/*																						*/
+/*	Featureset: Contract Management														*/
+/*																						*/
+/****************************************************************************************/
+
+	* Contract Types
+	* Contract levels
+		* salvage
+		* Money
+		* reputation
+	* Flashpoints
+
+
+
+/****************************************************************************************/
+/*																						*/
+/*																						*/
+/*																						*/
+/*																						*/
+/****************************************************************************************/
