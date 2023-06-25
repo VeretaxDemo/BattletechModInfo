@@ -11,7 +11,7 @@
 
 /****************************************************************************************/
 /*																						*/
-/*	Featureset: 	Crawl Folder Structure  											*/
+/*	Feature set: 	Crawl Folder Structure  											*/
 /*																						*/
 /****************************************************************************************/
 
@@ -23,17 +23,17 @@
 		* store file markers:
 			* read only?
 			* file type
-			* filesize
+			* file size
 			* date created
 			* date last modified
 			* date first seen
 			* date last seen
 	* Get List of all Mods Installed (or at least their folders)
-		* statistics about subfolders and files
+		* statistics about sub folders and files
 
 /****************************************************************************************/
 /*																						*/
-/*	Featureset: 	Backup and Recovery													*/
+/*	Feature set: 	Backup and Recovery													*/
 /*																						*/
 /****************************************************************************************/
 
@@ -46,7 +46,7 @@
 			* Prompt for backup location
 			* Check for folders that already exist
 				* Prompt to overwrite
-			* Copy overtop of existing files
+			* Copy and overwrite existing files
 			* Safe Mode
 				* Clean up Mods Folder
 				* Install fresh backups
@@ -58,12 +58,12 @@
 			* Prompt for Backup Location
 			* Prompt for recovery location
 				* Extract and overwrite
-					
+
 
 
 /****************************************************************************************/
 /*																						*/
-/*	Featureset: 	Mech Management  (Potentially Vehicles too down the road			*/
+/*	Feature set: 	BattleMech Management  (Potentially Vehicles too down the road			*/
 /*																						*/
 /****************************************************************************************/
 
@@ -83,7 +83,7 @@
 
 /****************************************************************************************/
 /*																						*/
-/*	Featureset: Contract Management														*/
+/*	Feature set: Contract Management														*/
 /*																						*/
 /****************************************************************************************/
 
