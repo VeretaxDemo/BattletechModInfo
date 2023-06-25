@@ -79,4 +79,9 @@ public class FileManagerStepDefinitions
         _fileInfoResult.LastWriteTime.Ticks.Should().BeGreaterThanOrEqualTo(DateTime.MinValue.Ticks);
     }
 
+    [Then(@"FileSize in bytes should be (.*)")]
+    public void ThenFileSizeInBytesShouldBe(int fileSize)
+    {
+        _fileInfoResult.Length.Should().Be(fileSize);
+    }
 }

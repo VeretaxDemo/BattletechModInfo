@@ -11,6 +11,7 @@ Scenario: File exists
     And FileCreationTime is not Null
     And FileAccessTime is not Null
     And FileLastWriteTime is not Null
+    And FileSize in bytes should be 3
 
 Scenario: File does not exist
     Given a FileManager
