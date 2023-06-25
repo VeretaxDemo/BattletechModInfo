@@ -1,11 +1,19 @@
 ﻿Feature: FileManager
+    In order to manage files
+    As a user
+    I want to be able to retrieve file information
 
-A file manager for getting file information and managing their attributes
+Scenario: File exists
+    Given a FileManager
+    And a valid file path "TestPayloads/EmptyFileName.file"
+    When I call the GetFileInfo method with the file name "TestPayloads/EmptyFileName.file"
+    Then it should return a FileInfo object
+    And FileCreationTime is not Null
+    And FileAccessTime is not Null
+    And FileLastWriteTime is not Null
 
-
-@FileManager
-Scenario: Empty File still has file info
-	Given A path to a folder
-	And the file name is
-	When the combined path is checked
-	Then the file info name should exist
+Scenario: File does not exist
+    Given a FileManager
+    And an invalid file path "nonexistent/file.txt"
+    When I call the GetFileInfo method with the invalid filename "nonexistent/file.txt"
+    Then it should return null

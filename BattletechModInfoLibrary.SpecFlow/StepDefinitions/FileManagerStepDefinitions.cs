@@ -1,46 +1,82 @@
-﻿namespace BattletechModInfo.Library.SpecFlow.StepDefinitions;
+﻿using BattletechModInfo.Library.Managers;
 
+namespace BattletechModInfo.Library.Specs.StepDefinitions;
+
+[Binding]
 public class FileManagerStepDefinitions
 {
-    [Binding]
-    public sealed class CalculatorStepDefinitions
+    private ScenarioContext _scenarioContext;
+    private FileManager _fileManager;
+    private string _fileName = "";
+    private string _filePath = "";
+    private string _invalidFilePath = "";
+    private FileInfo? _fileInfoResult;
+
+    public FileManagerStepDefinitions(ScenarioContext scenarioContext)
     {
-        // For additional details on SpecFlow step definitions see https://go.specflow.org/doc-stepdef
-
-        [Given("A path to a folder (.*)")]
-        public void GivenAPathToAFolder(string path)
-        {
-            //TODO: implement arrange (precondition) logic
-            // For storing and retrieving scenario-specific data see https://go.specflow.org/doc-sharingdata
-            // To use the multiline text or the table argument of the scenario,
-            // additional string/Table parameters can be defined on the step definition
-            // method.
-
-            throw new PendingStepException();
-        }
-
-        [Given("the file name is (.*)")]
-        public void GivenTheFileNameIs(string filename)
-        {
-            //TODO: implement arrange (precondition) logic
-
-            throw new PendingStepException();
-        }
-
-        [When("combined path is checked")]
-        public void WhenTheCombinedPathIsChecked()
-        {
-            //TODO: implement act (action) logic
-
-            throw new PendingStepException();
-        }
-
-        [Then("the result should be (.*)")]
-        public void ThenTheResultShouldBe(int result)
-        {
-            //TODO: implement assert (verification) logic
-
-            throw new PendingStepException();
-        }
+        _scenarioContext = scenarioContext;
     }
+
+    [Given(@"a FileManager")]
+    public void GivenAFileManager()
+    {
+        _fileManager = new FileManager();
+    }
+
+    [Given(@"a valid file path ""(.*)""")]
+    public void GivenAValidFilePath(string filePath)
+    {
+        _filePath = filePath;
+        _fileManager.CurrentFilePath = _filePath;
+    }
+
+    [Given(@"an invalid file path ""(.*)""")]
+    public void GivenAnInvalidFilePath(string invalidFilePath)
+    {
+        _invalidFilePath = invalidFilePath;
+    }
+
+    [When(@"I call the GetFileInfo method with the file name ""(.*)""")]
+    public void WhenICallTheGetFileInfoMethodWith(string filename)
+    {
+        _fileInfoResult = _fileManager.GetFileInfo(filename);
+    }
+
+    [When(@"I call the GetFileInfo method with the invalid filename ""(.*)""")]
+    public void WhenICallTheGetFileInfoMethodWithTheInvalidFilename(string invalidFilePath)
+    {
+        _fileManager.GetFileInfo(invalidFilePath);
+    }
+
+    [Then(@"it should return a FileInfo object")]
+    public void ThenItShouldReturnAFileInfoObject()
+    {
+        _fileInfoResult.Should().NotBeNull();
+        _fileInfoResult.Should().BeOfType<FileInfo>();
+    }
+
+    [Then(@"it should return null")]
+    public void ThenItShouldReturnNull()
+    {
+        _fileInfoResult.Should().BeNull();
+    }
+
+    [Then(@"FileCreationTime is not Null")]
+    public void ThenFileCreationTimeIsNotNull()
+    {
+        _fileInfoResult.CreationTime.Ticks.Should().BeGreaterThanOrEqualTo(DateTime.MinValue.Ticks);
+    }
+
+    [Then(@"FileAccessTime is not Null")]
+    public void ThenFileAccessTimeIsNotNull()
+    {
+        _fileInfoResult.LastAccessTime.Ticks.Should().BeGreaterThanOrEqualTo(DateTime.MinValue.Ticks);
+    }
+
+    [Then(@"FileLastWriteTime is not Null")]
+    public void ThenFileLastWriteTimeIsNotNull()
+    {
+        _fileInfoResult.LastWriteTime.Ticks.Should().BeGreaterThanOrEqualTo(DateTime.MinValue.Ticks);
+    }
+
 }
