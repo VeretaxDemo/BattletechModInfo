@@ -18,3 +18,15 @@ Scenario: File does not exist
     And an invalid file path "nonexistent/file.txt"
     When I call the GetFileInfo method with the invalid filename "nonexistent/file.txt"
     Then it should return null
+
+Scenario: Folder exists
+    Given a FileManager
+    And a valid folder path "C:/Windows/System32/drivers/etc"
+    When I call the GetListOfFileInfoInFolder method with folder path "C:/Windows/System32/drivers/etc"
+    Then it should return a list of FileInfo objects
+
+Scenario: Folder does not exist
+    Given a FileManager
+    And an invalid folder path "nonexistent/folder"
+    When I call the GetListOfFileInfoInFolder method with an invalid folder
+    Then it should return an empty list

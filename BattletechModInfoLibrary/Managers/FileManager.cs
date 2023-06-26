@@ -15,4 +15,21 @@ public class FileManager
             return null;
         }
     }
+
+    public List<FileInfo> GetListOfFileInfoInFolder(string folderPath)
+    {
+        List<FileInfo> fileInfos = new List<FileInfo>();
+
+        if (Directory.Exists(folderPath))
+        {
+            string[] files = Directory.GetFiles(folderPath);
+            foreach (string file in files)
+            {
+                FileInfo fileInfo = new FileInfo(file);
+                fileInfos.Add(fileInfo);
+            }
+        }
+
+        return fileInfos;
+    }
 }
