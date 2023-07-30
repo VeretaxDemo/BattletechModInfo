@@ -8,5 +8,18 @@
         Title="MainWindow" Height="450" Width="800">
     <Grid>
 
+        <!-- Adding the Menu -->
+        <Menu x:Name="menu">
+            <MenuItem Header="File">
+                <!-- Submenu with "View Files" item -->
+                <MenuItem Header="View Files" Click="ViewFiles_Click" />
+                <!-- Add other File-related sub-menu items here (e.g., Open, Save, Exit) -->
+                <!-- Add File-related sub-menu items here (e.g., Open, Save, Exit) -->
+            </MenuItem>
+            <MenuItem Header="Help">
+                <!-- Add Help-related sub-menu items here (e.g., About) -->
+            </MenuItem>
+        </Menu>
+
     </Grid>
 </Window>
